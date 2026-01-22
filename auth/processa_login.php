@@ -2,33 +2,35 @@
 session_start();
 require_once '../config/conexao.php';
 
-$email = $_POST['email'] ?? '';
+$email = trim($_POST['email'] ?? '');
 $senha = $_POST['senha'] ?? '';
+
+if (!$email || !$senha) {
+    header("Location: login.php?erro=1");
+    exit;
+}
 
 $sql = "
 SELECT u.*, p.perfil
 FROM users u
 JOIN perfis p ON p.id = u.perfil_id
 WHERE u.email = :email
-AND u.senha = :senha
 AND u.ativo = 1
 ";
 
 $stmt = $db->prepare($sql);
-$stmt->execute([
-    ':email' => $email,
-    ':senha' => $senha
-]);
+$stmt->execute([':email' => $email]);
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($user) {
-    $_SESSION['user_id']   = $user['id'];
-    $_SESSION['nome']      = $user['nome'];
-    $_SESSION['perfil']    = $user['perfil'];
+if ($user && password_verify($senha, $user['senha'])) {
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['nome']   = $user['nome'];
+    $_SESSION['perfil'] = $user['perfil'];
 
-    header("Location: ../public/dashboard.php");
+    header("Location: ../index.php");
     exit;
-} else {
-    echo "Login inválido";
 }
+
+header("Location: login.php?erro=1");
+exit;

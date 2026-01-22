@@ -1,0 +1,181 @@
+/* ========================================================================
+   RESET BÁSICO
+   ======================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+/* ========================================================================
+   VARIÁVEIS
+   ======================================================================== */
+:root {
+    --cor-primaria: #2f80ed;       /* Azul confiável */
+    --cor-secundaria: #56cc9d;     /* Verde saúde */
+    --cor-destaque: #00b894;       /* Verde odontologia */
+    --cinza-claro: #f0f2f5;        /* Fundo suave */
+    --cinza: #dfe6e9;              /* Bordas */
+    --texto: #2d3436;              /* Texto principal */
+    --texto-suave: #636e72;        /* Texto secundário */
+    --cor-botao-hover: #1c64d1;    /* Hover botão */
+    --cor-input-foco: #2f80ed;     /* Foco input */
+}
+
+/* ========================================================================
+   BODY LOGIN
+   ======================================================================== */
+
+#login-page {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    display: flex;
+    flex-direction: column; /* header + form em coluna */
+    justify-content: center;
+    align-items: center;
+    color: var(--texto);
+    padding: 10px;
+    height: 100vh;   /* altura da viewport */
+    width: 100vw;    /* largura da viewport */
+}
+
+
+/* ========================================================================
+   HEADER DO SISTEMA
+   ======================================================================== */
+#login-page .system-header {
+    text-align: center;
+
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+#login-page .system-title {
+    font-size: 100px;
+    font-weight: 700;
+    color: #fff; /* título branco para contraste */
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+#login-page .system-subtitle {
+    font-size: 40px;
+    color: #e0e0e0; /* subtítulo cinza claro */
+    font-weight: 400;
+    margin-bottom: 150px;
+}
+
+/* ========================================================================
+   CONTAINER LOGIN
+   ======================================================================== */
+#login-page .login-container {
+    width: 100%;
+    max-width: 420px;
+    background: linear-gradient(145deg, #ffffff, #f9fbfd);
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    border: 1px solid #e6e9ef;
+}
+
+/* Título do formulário */
+#login-page .login-title {
+    margin-bottom: 20px;
+    color: var(--cor-primaria);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Labels */
+#login-page .login-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    text-align: left;
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+/* Inputs */
+#login-page .login-input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border: 1px solid var(--cinza);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #fdfdfd;
+}
+
+#login-page .login-input:focus {
+    border-color: var(--cor-input-foco);
+    background-color: #f0f7ff;
+    box-shadow: 0 0 6px rgba(47, 128, 237, 0.25);
+    outline: none;
+}
+
+/* Ícone de olho */
+#login-page .password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#login-page .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 38px;
+    color: var(--texto-suave);
+}
+
+/* Botão */
+#login-page .login-btn {
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    color: #fff;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(47, 128, 237, 0.25);
+}
+
+#login-page .login-btn:hover {
+    background-color: var(--cor-botao-hover);
+    transform: translateY(-2px);
+}
+
+/* ========================================================================
+   RESPONSIVO
+   ======================================================================== */
+@media (max-width: 600px) {
+    #login-page .login-container {
+        padding: 25px 20px;
+        width: 92%;
+    }
+
+    #login-page .system-title {
+        font-size: 28px;
+    }
+
+    #login-page .login-title {
+        font-size: 20px;
+    }
+
+    #login-page .login-input,
+    #login-page .login-btn {
+        font-size: 14px;
+    }
+}
+
+/* ========================================================================
+   ANIMAÇÃO
+   ======================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
