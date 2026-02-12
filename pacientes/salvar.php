@@ -7,6 +7,8 @@ $cpf             = trim($_POST['cpf'] ?? '');
 $telefone        = trim($_POST['telefone'] ?? '');
 $email           = trim($_POST['email'] ?? '');
 $data_nascimento = $_POST['data_nascimento'] ?? null;
+$endereco           = trim($_POST['endereco'] ?? '');
+$observacoes           = trim($_POST['observacoes'] ?? '');
 
 // Validação mínima
 if ($nome === '') {
@@ -16,9 +18,9 @@ if ($nome === '') {
 try {
     $stmt = $db->prepare("
         INSERT INTO pacientes 
-        (nome, cpf, telefone, email, data_nascimento, ativo)
+        (nome, cpf, telefone, email, data_nascimento, ativo, endereco, observacoes)
         VALUES 
-        (:nome, :cpf, :telefone, :email, :data_nascimento, 1)
+        (:nome, :cpf, :telefone, :email, :data_nascimento, 1, :endereco, :observacoes)
     ");
 
     $stmt->execute([
@@ -26,11 +28,13 @@ try {
         ':cpf'             => $cpf,
         ':telefone'        => $telefone,
         ':email'           => $email,
-        ':data_nascimento' => $data_nascimento
+        ':data_nascimento' => $data_nascimento,
+        ':endereco' => $endereco,
+         ':observacoes' => $observacoes
     ]);
 
     // Volta para a lista
-    header('Location: listar.php');
+    header('Location: listar.php?sucesso=1');
     exit;
 
 } catch (Exception $e) {

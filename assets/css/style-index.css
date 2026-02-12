@@ -1,0 +1,85 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo geral */
+#clinica-body {
+    background: linear-gradient(135deg, #f0f4f8, #d9e6f2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+#clinica-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 400px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Título */
+#clinica-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Menu */
+#clinica-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Botões */
+.clinica-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* espaço entre ícone e texto */
+    padding: 12px;
+    text-decoration: none;
+    background: #3498db;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.clinica-btn i {
+    font-size: 1.2rem;
+}
+
+.clinica-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Botão de logout diferenciado */
+.logout-btn {
+    background: #e74c3c;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+
+/* Animação suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

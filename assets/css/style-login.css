@@ -8,6 +8,10 @@
     font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
+html{
+    height: 100%;
+}
+
 /* ========================================================================
    VARIÁVEIS
    ======================================================================== */
@@ -31,7 +35,7 @@
     background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
     display: flex;
     flex-direction: column; /* header + form em coluna */
-    justify-content: center;
+    margin-top: 50px;
     align-items: center;
     color: var(--texto);
     padding: 10px;
@@ -116,6 +120,9 @@
     outline: none;
 }
 
+#erroLogin{
+    margin-bottom: 10px;
+}
 /* Ícone de olho */
 #login-page .password-wrapper {
     position: relative;
@@ -126,7 +133,13 @@
     position: absolute;
     right: 12px;
     top: 38px;
-    color: var(--texto-suave);
+    cursor: pointer
+
+}
+
+#login-page .toggle-password:focus{
+    outline: none;
+
 }
 
 /* Botão */
@@ -179,3 +192,8 @@
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+
+   

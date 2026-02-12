@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+
+#editar-paciente-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.editar-paciente-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Título */
+.editar-paciente-titulo {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Labels */
+.editar-paciente-label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Inputs e Select */
+.editar-paciente-input,
+.editar-paciente-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Botões */
+.editar-paciente-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.editar-paciente-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.editar-paciente-btn:hover {
+    background-color: #0056b3;
+}
+
+.editar-paciente-voltar {
+    text-decoration: none;
+    color: #555;
+    padding: 10px 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.editar-paciente-voltar:hover {
+    background-color: #f0f0f0;
+}

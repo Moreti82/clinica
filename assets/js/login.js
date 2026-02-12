@@ -13,3 +13,9 @@ function togglePassword() {
     }
 }
 
+const erroLogin = document.getElementById("erroLogin");
+if (erroLogin.textContent.trim() !== "") {
+    erroLogin.style.display = "block"; // mostra o <p>
+}
+
+

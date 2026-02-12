@@ -1,0 +1,154 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo geral */
+#novo-paciente-body {
+    background: linear-gradient(135deg, #f0f4f8, #d9e6f2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Container principal */
+#novo-paciente-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    width: 700px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Título */
+#novo-paciente-title {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#novo-paciente-title i {
+    color: #3498db;
+    margin-right: 8px;
+}
+
+/* Formulário em grid */
+#novo-paciente-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* duas colunas */
+    gap: 20px;
+}
+
+/* Grupo label + input */
+.form-group {
+    display: flex;
+    flex-direction: column; /* label acima do input */
+}
+
+/* Label */
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+/* Input */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+    resize: none; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Observações ocupa duas colunas */
+.form-group.observacoes {
+    grid-column: span 2;
+}
+
+/* Ações ocupam as duas colunas */
+#novo-paciente-actions {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Botões */
+.novo-paciente-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+/* Botão salvar */
+.salvar-btn {
+    background: #27ae60;
+    color: #fff;
+    border: none;
+}
+
+.salvar-btn:hover {
+    background: #1e8449;
+    transform: translateY(-2px);
+}
+
+/* Botão cancelar */
+.cancelar-btn {
+    background: #e74c3c;
+    color: #fff;
+    text-align: center;
+}
+
+.cancelar-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Ícones */
+.novo-paciente-btn i {
+    font-size: 1rem;
+}
+
+/* Animação suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    #novo-paciente-form {
+        grid-template-columns: 1fr;
+    }
+    #novo-paciente-actions {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

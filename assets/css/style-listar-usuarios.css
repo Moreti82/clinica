@@ -1,0 +1,120 @@
+/* ========================================================================
+   PÁGINA: LISTAGEM DE USUÁRIOS
+   Arquivo: users/listar.php
+   ======================================================================== */
+
+#usuarios-page {
+    background-color: #f4f6f9;
+    color: #2d3436;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+#usuarios-page .usuarios-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO */
+#usuarios-page .usuarios-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #2f80ed;
+}
+
+/* MENU DE AÇÕES */
+#usuarios-page .usuarios-menu {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* BOTÕES */
+#usuarios-page .usuarios-btn,
+#usuarios-page .usuarios-btn-sec {
+    background: #2f80ed;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+
+}
+
+#usuarios-page .usuarios-btn:hover,
+#usuarios-page .usuarios-btn-sec:hover {
+    background: #1c64d1;
+    scale: 1.05;
+}
+
+/* TABELA */
+#usuarios-page .usuarios-table-wrapper {
+    overflow-x: auto;
+}
+
+#usuarios-page .usuarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* CABEÇALHO */
+#usuarios-page .usuarios-table thead {
+    background: #2f80ed;
+}
+
+#usuarios-page .usuarios-table th {
+    padding: 14px;
+    text-align: left;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* CORPO */
+#usuarios-page .usuarios-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* LINHAS */
+#usuarios-page .usuarios-table tbody tr:hover {
+    background-color: #f2f6ff;
+}
+
+/* STATUS */
+#usuarios-page .usuarios-status-ativo {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+#usuarios-page .usuarios-status-inativo {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+    #usuarios-page .usuarios-menu {
+        flex-direction: column;
+    }
+
+    #usuarios-page .usuarios-title {
+        font-size: 20px;
+    }
+
+    #usuarios-page .usuarios-table th,
+    #usuarios-page .usuarios-table td {
+        font-size: 13px;
+    }
+}

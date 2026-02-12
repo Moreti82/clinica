@@ -1,0 +1,117 @@
+/* ========================================================================
+   PÁGINA: CADASTRO DE USUÁRIO
+   Arquivo: users/novo.php
+   ======================================================================== */
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#usuario-novo-page {
+    background-color: #f4f6f9;
+    color: #2d3436;
+    font-size: 15px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTAINER */
+#usuario-novo-page .usuario-novo-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* TÍTULO */
+#usuario-novo-page .usuario-novo-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #2f80ed;
+    text-align: center;
+}
+
+/* FORMULÁRIO */
+#usuario-novo-page .usuario-novo-form {
+    width: 100%;
+}
+
+/* CAMPOS */
+#usuario-novo-page .usuario-novo-field {
+    margin-bottom: 18px;
+}
+
+#usuario-novo-page .usuario-novo-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+#usuario-novo-page .usuario-novo-field input,
+#usuario-novo-page .usuario-novo-field select {
+    width: 95%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdde1;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+#usuario-novo-page .usuario-novo-field input:focus,
+#usuario-novo-page .usuario-novo-field select:focus {
+    border-color: #2f80ed;
+    outline: none;
+}
+
+/* AÇÕES */
+#usuario-novo-page .usuario-novo-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+/* BOTÕES */
+#usuario-novo-page .usuario-novo-btn,
+#usuario-novo-page .usuario-novo-btn-sec {
+    background: #2f80ed;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#usuario-novo-page .usuario-novo-btn:hover,
+#usuario-novo-page .usuario-novo-btn-sec:hover {
+    background: #1c64d1;
+    scale: 1.05;
+}
+
+
+/* LINKS */
+#usuario-novo-page a {
+    text-decoration: none;
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+    #usuario-novo-page .usuario-novo-actions {
+        flex-direction: column;
+    }
+
+    #usuario-novo-page .usuario-novo-title {
+        font-size: 20px;
+    }
+}

@@ -13,43 +13,64 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Pacientes - Clínica</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style-listar-pacientes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body>
+<body id="pacientes-body">
 
-    <div class="container">
-        <h2>Pacientes</h2>
+    <div id="pacientes-container">
+        <h2 id="pacientes-title">Pacientes</h2>
 
-        <a href="novo.php" class="btn">Novo Paciente</a>
+        <a href="novo.php" class="pacientes-btn pacientes-btn-novo">
+            <i class="fa-solid fa-user-plus"></i> Novo Paciente
+        </a>
 
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
+        <a href="../index.php" class="pacientes-btn pacientes-btn-voltar">
+            <i class="fa-solid fa-arrow-left"></i>Voltar
+        </a>
 
-            <?php foreach ($pacientes as $p): ?>
+        <table id="pacientes-table">
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($p['nome']) ?></td>
-                    <td><?= $p['telefone'] ?></td>
-                    <td class="<?= $p['ativo'] ? 'status-ativo' : 'status-inativo' ?>">
-                        <?= $p['ativo'] ? 'Ativo' : 'Inativo' ?>
-                    </td>
-                    <td>
-                        <a href="editar.php?id=<?= $p['id'] ?>" class="btn-editar">Editar</a>
-                        |
-                        <a href="excluir.php?id=<?= $p['id'] ?>" class="btn-excluir" onclick="return confirmarExclusao()">Excluir</a>
-                    </td>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>CPF</th>
+                    <th>Endereço</th>
+                    <th>Observações</th>
+                    <th>Status</th>
+                    <th>Ações</th>
                 </tr>
-            <?php endforeach; ?>
+            </thead>
+            <tbody>
+                <?php foreach ($pacientes as $p): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($p['nome']) ?></td>
+                        <td><?= $p['telefone'] ?></td>
+                        <td><?= $p['email'] ?></td>
+                        <td><?= $p['cpf'] ?></td>
+                        <td><?= $p['endereco'] ?></td>
+                        <td><?= $p['observacoes'] ?></td>
+                        <td class="<?= $p['ativo'] ? 'paciente-status-ativo' : 'paciente-status-inativo' ?>">
+                            <?= $p['ativo'] ? 'Ativo' : 'Inativo' ?>
+                        </td>
+                        <td class="pacientes-acoes">
+                            <a href="editar.php?id=<?= $p['id'] ?>" class="pacientes-btn-editar">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </a>
+                            |
+                            <a href="excluir.php?id=<?= $p['id'] ?>" class="pacientes-btn-excluir" onclick="return confirmarExclusao()">
+                                <i class="fa-solid fa-trash"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
         </table>
     </div>
 
-    <script src="../assets/js/pacientes.js"></script>
+    <script src="../assets/js/listar-pacientes.js"></script>
 
 </body>
-
 </html>
