@@ -73,6 +73,28 @@ font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     outline: none;
 }
 
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* espaço para o ícone */
+
+}
+
+.password-container i {
+    position: absolute;
+    right: 25px;
+    cursor: pointer;
+    color: #666;
+
+}
+
+
 /* AÇÕES */
 #usuario-novo-page .usuario-novo-actions {
     display: flex;
@@ -97,6 +119,12 @@ font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 #usuario-novo-page .usuario-novo-btn-sec:hover {
     background: #1c64d1;
     scale: 1.05;
+    cursor: pointer;
+}
+
+#usuario-novo-page .usuario-novo-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 

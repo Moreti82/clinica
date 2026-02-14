@@ -12,6 +12,7 @@ $perfis = $db->query("SELECT * FROM perfis")->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Novo Usuário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style-novo-usuario.css">
 </head>
 
@@ -34,13 +35,35 @@ $perfis = $db->query("SELECT * FROM perfis")->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="usuario-novo-field">
+
             <label>Senha</label>
-            <input type="password" name="senha" required>
+
+            <div class="password-container">
+                <input type="password" name="senha" id="senha" required>
+                <i class="fa-solid fa-eye" id="toggleSenha"></i>
+            </div>
+
+        </div>
+
+        
+        <div class="usuario-novo-field">
+
+            <label>Confirmar Senha</label>
+
+            <div class="password-container">
+                <input type="password" name="conf-senha" id="conf-senha" required>
+                <i class="fa-solid fa-eye" id="toggleConfSenha"></i>
+            </div>
+
+            <label id="confirmar-senha"></label>
+
         </div>
 
         <div class="usuario-novo-field">
             <label>Perfil</label>
+            
             <select name="perfil_id" required>
+                <option value="">Selecione...</option>
                 <?php foreach ($perfis as $p): ?>
                     <option value="<?= $p['id'] ?>">
                         <?= htmlspecialchars($p['perfil']) ?>
@@ -50,13 +73,15 @@ $perfis = $db->query("SELECT * FROM perfis")->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div class="usuario-novo-actions">
-            <button type="submit" class="btn usuario-novo-btn">💾 Salvar</button>
+            <button id="salvar" disabled type="submit" class="btn usuario-novo-btn">💾 Salvar</button>
             <a href="listar.php" class="btn usuario-novo-btn-sec">⬅ Voltar</a>
         </div>
 
     </form>
 
-</div>
+</div>]
+
+    <script src="../assets/js/novo-usuario.js"></script>
 
 </body>
 </html>

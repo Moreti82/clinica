@@ -1,0 +1,171 @@
+#calendario-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+/* ===============================
+   CONTAINER
+================================= */
+
+.calendario-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* ===============================
+   HEADER
+================================= */
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.mes-navegacao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 6px 10px;
+    background: #2196f3;
+    color: white;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #1976d2;
+}
+
+.btn-voltar {
+    text-decoration: none;
+    padding: 8px 14px;
+    background: #6c757d;
+    color: white;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: #5a6268;
+}
+
+/* ===============================
+   GRID
+================================= */
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 20px;
+}
+
+/* ===============================
+   DIAS DA SEMANA
+================================= */
+
+.dia-semana {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+/* ===============================
+   DIAS
+================================= */
+
+.dia {
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    min-height: 80px;
+    transition: 0.2s;
+}
+
+.dia a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    height: 100%;
+}
+
+.numero {
+    font-weight: bold;
+}
+
+/* ===============================
+   FINAL DE SEMANA
+================================= */
+
+.dia.fim-semana {
+    background-color: #ffecec;
+}
+
+/* ===============================
+   FERIADO
+================================= */
+
+.dia.feriado {
+    background-color: #ffd6d6;
+    font-weight: bold;
+}
+
+/* ===============================
+   DIA COM AGENDAMENTO
+================================= */
+
+.dia.com-agendamento {
+    border: 2px solid #2f80ed;
+}
+
+/* ===============================
+   DIA ATUAL
+================================= */
+
+.dia.hoje {
+    border: 2px solid #ff5722;
+    background-color: #fff3e0;
+}
+
+.dia.hoje .numero {
+    color: #ff5722;
+}
+
+/* ===============================
+   BADGE
+================================= */
+
+.badge {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background-color: #2f80ed;
+    color: white;
+    border-radius: 50px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+/* ===============================
+   DIA VAZIO
+================================= */
+
+.vazio {
+    background: transparent;
+    border: none;
+}

@@ -30,11 +30,16 @@ if (!isset($_SESSION['user_id'])) {
         <a href="pacientes/listar.php" class="clinica-btn">
             <i class="fa-solid fa-user-injured"></i> Pacientes
         </a>
-        <a href="#" class="clinica-btn">
+
+        <a href="agendamentos/profissionais.php" class="clinica-btn">    
+        <i class="fa-solid fa-stethoscope"></i> Profissionais
+        </a>
+                
+        <a href="agendamentos/calendario.php" class="clinica-btn">
             <i class="fa-solid fa-calendar-check"></i> Agendamentos
         </a>
         <a href="#" class="clinica-btn">
-            <i class="fa-solid fa-stethoscope"></i> Procedimentos
+            <i class="fa-solid fa-tooth"></i> Procedimentos
         </a>
         <a href="./auth/logout.php" class="clinica-btn logout-btn">
             <i class="fa-solid fa-right-from-bracket"></i> Sair

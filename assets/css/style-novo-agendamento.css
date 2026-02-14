@@ -1,0 +1,149 @@
+/* ========================================================================
+   PÁGINA: NOVO AGENDAMENTO
+   Arquivo: agendamentos/novo.php
+   ======================================================================== */
+
+#agendamento-novo-page {
+    background-color: #f4f6f9;
+    font-size: 15px;
+}
+
+#agendamento-novo-page .agendamento-novo-container {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+#agendamento-novo-page .agendamento-novo-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #2f80ed;
+    font-weight: 600;
+}
+
+/* FORM */
+#agendamento-novo-page .agendamento-novo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#agendamento-novo-page .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#agendamento-novo-page label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+#agendamento-novo-page input,
+#agendamento-novo-page select,
+#agendamento-novo-page textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: 0.2s ease;
+    font-size: 14px;
+}
+
+#agendamento-novo-page input:focus,
+#agendamento-novo-page select:focus,
+#agendamento-novo-page textarea:focus {
+    border-color: #2f80ed;
+    outline: none;
+    box-shadow: 0 0 5px rgba(47,128,237,0.3);
+}
+
+/* DATA + HORA LADO A LADO */
+#agendamento-novo-page .form-group-row {
+    display: flex;
+    gap: 15px;
+}
+
+#agendamento-novo-page .form-group-row .form-group {
+    flex: 1;
+}
+
+/* BOTÕES */
+#agendamento-novo-page .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#agendamento-novo-page .btn-salvar {
+    background: #2f80ed;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+#agendamento-novo-page .btn-salvar:hover {
+    background: #1c64d1;
+    transform: scale(1.05);
+}
+
+#agendamento-novo-page .btn-voltar {
+    background: #6c757d;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+#agendamento-novo-page .btn-voltar:hover {
+    background: #5a6268;
+    transform: scale(1.05);
+}
+
+/* MENSAGENS */
+
+#agendamento-novo-page .msg-sucesso,
+#agendamento-novo-page .msg-erro {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#agendamento-novo-page .msg-sucesso {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#agendamento-novo-page .msg-erro {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Estado escondido */
+#agendamento-novo-page .sumir {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    #agendamento-novo-page .form-group-row {
+        flex-direction: column;
+    }
+}
