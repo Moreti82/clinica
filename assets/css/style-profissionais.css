@@ -1,0 +1,127 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Contêiner principal */
+.profissionais-container {
+    background: white;
+    width: 90%;
+    max-width: 1200px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Título da página */
+.profissionais-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Menu de Ações */
+.profissionais-menu {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    gap: 12px;
+}
+
+.profissionais-btn,
+.profissionais-btn-sec {
+    padding: 12px 20px;
+    text-decoration: none;
+    background-color: #4a90e2;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profissionais-btn:hover,
+.profissionais-btn-sec:hover {
+    background-color: #357ab8;
+}
+
+/* Tabela */
+.profissionais-table-wrapper {
+    overflow-x: auto;
+}
+
+.profissionais-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.profissionais-table th,
+.profissionais-table td {
+    padding: 14px;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profissionais-table th {
+    background-color: #2f80ed;
+    color: white;
+}
+
+/* Linhas */
+.profissionais-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Status */
+.status-ativo {
+    color: green;
+    font-weight: bold;
+}
+
+.status-inativo {
+    color: red;
+    font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .profissionais-table th,
+    .profissionais-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+.mensagem-sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}

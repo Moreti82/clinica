@@ -1,0 +1,23 @@
+/* Estilo do botão Reativar */
+.btn-reativar {
+    background-color: #28a745; /* Cor verde para indicar ativação */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-reativar:hover {
+    background-color: #218838; /* Cor verde escuro ao passar o mouse */
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+.btn-reativar:active {
+    transform: scale(1); /* Reverte o efeito de aumento quando o botão é clicado */
+}

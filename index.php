@@ -31,7 +31,7 @@ if (!isset($_SESSION['user_id'])) {
             <i class="fa-solid fa-user-injured"></i> Pacientes
         </a>
 
-        <a href="agendamentos/profissionais.php" class="clinica-btn">    
+        <a href="profissionais/profissionais.php" class="clinica-btn">    
         <i class="fa-solid fa-stethoscope"></i> Profissionais
         </a>
                 

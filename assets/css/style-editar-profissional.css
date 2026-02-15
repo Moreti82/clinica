@@ -1,0 +1,114 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Contêiner do formulário */
+.container {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+/* Título */
+h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Estilo para as mensagens de erro */
+div[style*="color"] {
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Formulário */
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Botões */
+button, .btn-voltar {
+    background-color: #2f80ed;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+button:hover, .btn-voltar:hover {
+    background-color: #1c64d1;
+}
+
+/* Botão Voltar */
+.btn-voltar {
+    margin-top: 10px;
+    background-color: #e0e0e0;
+    color: #333;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-weight: normal;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+.btn-voltar:hover {
+    background-color: #b3b3b3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    form input, form select {
+        font-size: 14px;
+    }
+}

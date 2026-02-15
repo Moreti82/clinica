@@ -1,0 +1,153 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* FUNDO DA PÁGINA */
+body {
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* TÍTULO */
+.container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* GRUPOS */
+.container div {
+    margin-bottom: 18px;
+}
+
+/* LABEL */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* INPUTS */
+input,
+select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+/* FOCO */
+input:focus,
+select:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74,144,226,0.15);
+}
+
+/* BOTÕES */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #357ab8;
+}
+
+/* LINK VOLTAR */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+/* LINK VOLTAR (botão estilizado) */
+a.btn-voltar {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background: #a09b9b; /* Cor suave para o fundo */
+    color: #000000;
+    text-decoration: none; /* Remove o sublinhado do link */
+    text-align: center;
+    border-radius: 8px; /* Bordas arredondadas */
+    font-weight: 600;
+    margin-top: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Indicativo de que o link é clicável */
+}
+
+/* Efeito Hover - quando o usuário passa o mouse */
+a.btn-voltar:hover {
+    background-color: #b3b3b3; /* Fundo um pouco mais escuro */
+    transform: translateY(-2px); /* Pequeno deslocamento para cima */
+}
+
+/* Efeito de foco - quando o link é clicado ou selecionado */
+a.btn-voltar:focus {
+    outline: none; /* Remove o contorno padrão do navegador */
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5); /* Sombra suave ao clicar */
+}
+
+/* MENSAGENS */
+.msg-sucesso {
+    background: #e8f9f0;
+    color: #2ecc71;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.msg-erro {
+    background: #fdecea;
+    color: #e74c3c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
