@@ -20,6 +20,7 @@ function listarAgendamentosPorMes($db, $mes, $ano) {
         SELECT data, COUNT(*) as total
         FROM agendamentos
         WHERE data BETWEEN :inicio AND :fim
+        AND status IN ('Agendado','Confirmado')
         GROUP BY data
     ";
 
@@ -43,7 +44,8 @@ function listarAgendamentosPorMes($db, $mes, $ano) {
 function listarAgendamentosPorData($db, $data) {
 
     $sql = "
-        SELECT 
+        SELECT
+            a.id,
             a.hora,
             p.nome AS paciente,
             pr.nome AS profissional,
@@ -52,7 +54,7 @@ function listarAgendamentosPorData($db, $data) {
         FROM agendamentos a
         JOIN pacientes p ON a.paciente_id = p.id
         JOIN profissionais pr ON a.profissional_id = pr.id
-        WHERE a.data = :data
+        WHERE a.data = :data AND a.status IN ('Agendado', 'Confirmado')
         ORDER BY a.hora
     ";
 

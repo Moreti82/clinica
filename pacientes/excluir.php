@@ -4,21 +4,18 @@ require_once '../config/conexao.php';
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Excluir o paciente
-    $stmt = $db->prepare("DELETE FROM pacientes WHERE id = :id");
+    // Atualizar o paciente para inativo
+    $stmt = $db->prepare("UPDATE pacientes SET ativo = 0 WHERE id = :id");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     
     if ($stmt->execute()) {
-        // Se a exclusão for bem-sucedida, redireciona para a listagem de pacientes
-        header("Location: listar.php");
+        // Se a atualização for bem-sucedida, redireciona para a listagem de pacientes
+        header("Location: listar.php?sucesso=1");
         exit;
     } else {
-        // Caso ocorra algum erro, você pode adicionar uma mensagem de erro
-        echo "Erro ao excluir o paciente.";
+        echo "Erro ao atualizar o status do paciente.";
     }
 } else {
-    // Se o ID não for encontrado na URL, redireciona para a listagem de pacientes
-    header("Location: listar.php");
+    header("Location: listar.php?erro=1");
     exit;
 }
-?>

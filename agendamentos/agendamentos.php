@@ -37,6 +37,8 @@ $agendamentos = listarAgendamentosPorData($db, $dataSelecionada);
                             <th>Profissional</th>
                             <th>Observações</th>
                             <th>Status</th>
+                            <th>Ações</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -47,13 +49,45 @@ $agendamentos = listarAgendamentosPorData($db, $dataSelecionada);
                             <td><?= htmlspecialchars($a['profissional']) ?></td>
                             <td><?= htmlspecialchars($a['observacoes']) ?></td>
                             <td><?= htmlspecialchars($a['status']) ?></td>
+                            <td>
+                                <button 
+                                    type="button" 
+                                    class="abrir-modal" 
+                                    data-id="<?= $a['id'] ?>" 
+                                    data-nome="<?= htmlspecialchars($a['paciente']) ?>">
+                                    Alterar Status
+                                </button>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
+
                     </tbody>
                 </table>
+
+                <div id="modal-status" class="modal" style="display:none;">
+                    <div class="modal-content">
+                        <span class="fechar">&times;</span>
+                        <h3 id="modal-titulo"></h3>
+                        <form id="form-status"  method="post" action="alterar-status.php" onsubmit="fecharModal()">
+                            <input type="hidden" name="agendamento_id" id="agendamento-id">
+                            <label for="status">Novo Status:</label>
+                            <select name="status" id="status">
+                                <option value="Agendado">Agendado</option>
+                                <option value="Confirmado">Confirmado</option>
+                                <option value="Cancelado">Cancelado</option>
+                                <option value="Concluído">Concluído</option>
+                            </select>
+                            <br><br>
+                            <button type="submit">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
 
         </div>
 
     </body>
+
+    <script src="../assets/js/agendamentos.js"></script>
 </html>

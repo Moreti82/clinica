@@ -131,3 +131,102 @@
         flex-direction: column;
     }
 }
+
+/* botao alterar status */
+
+.abrir-modal {
+    padding: 8px 16px;
+    background: #007BFF; /* azul padrão */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.abrir-modal:hover {
+    background: #0056b3; /* azul mais escuro no hover */
+    transform: scale(1.05); /* leve aumento */
+}
+
+.abrir-modal:active {
+    background: #004080; /* ainda mais escuro ao clicar */
+    transform: scale(0.98); /* leve redução para efeito de clique */
+}
+
+
+/* modal */
+
+.modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); /* fundo mais escuro */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* garante que fique acima da tabela */
+    animation: fadeIn 0.3s ease; /* animação suave */
+}
+
+/* Caixa do modal */
+.modal-content {
+    background: #fff;
+    padding: 25px 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    animation: slideDown 0.3s ease; /* animação de entrada */
+}
+
+/* Botão fechar */
+.fechar {
+    position: absolute;
+    top: 10px; right: 15px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #666;
+    transition: color 0.2s;
+}
+.fechar:hover {
+    color: #000;
+}
+
+/* Select estilizado */
+.modal-content select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Botão salvar */
+.modal-content button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.modal-content button:hover {
+    background: #45a049;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}

@@ -53,6 +53,7 @@ if ($profissionalSelecionado) {
         SELECT hora 
         FROM agendamentos 
         WHERE data = ? AND profissional_id = ?
+        AND status IN ('Agendado','Confirmado')
     ");
     $stmt->execute([$dataSelecionada, $profissionalSelecionado]);
     $horariosOcupados = $stmt->fetchAll(PDO::FETCH_COLUMN);
