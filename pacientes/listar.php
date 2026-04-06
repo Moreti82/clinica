@@ -59,10 +59,7 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <a href="editar.php?id=<?= $p['id'] ?>" class="pacientes-btn-editar">
                                 <i class="fa-solid fa-pen-to-square"></i> Editar
                             </a>
-                            |
-                            <a href="excluir.php?id=<?= $p['id'] ?>" class="pacientes-btn-excluir" onclick="return confirmarExclusao()">
-                                <i class="fa-solid fa-trash"></i> Excluir
-                            </a>
+                            
                         </td>
                     </tr>
                 <?php endforeach; ?>

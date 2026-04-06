@@ -1,5 +1,5 @@
 <?php
-require_once '../auth/verifica_admin.php';
+/* require_once '../auth/verifica_admin.php'; */
 require_once '../config/conexao.php';
 
 $perfis = $db->query("SELECT * FROM perfis")->fetchAll(PDO::FETCH_ASSOC);

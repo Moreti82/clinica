@@ -1,6 +1,7 @@
 <?php
+
 require_once '../config/conexao.php';
-require_once '../auth/verifica_admin.php';
+/* require_once '../auth/verifica_admin.php'; */
 
 $sql = "
 SELECT u.id, u.nome, u.email, u.ativo, p.perfil

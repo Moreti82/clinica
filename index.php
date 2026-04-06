@@ -1,11 +1,17 @@
+
 <?php
-session_start();
+
+// inicia uma seção e depois verifica se existe o usuario esta logado se nao estiver manda pra pagina de login
+/* session_start()
 
 if (!isset($_SESSION['user_id'])) {
+
     header("Location: ./auth/login.php ");
     exit;
 }
+*/
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,11 +27,20 @@ if (!isset($_SESSION['user_id'])) {
     <h1 id="clinica-title">Painel da Clínica</h1>
 
     <div id="clinica-menu">
+        <p>
+            Bem Vindo 
+            <?= $_SESSION['nome'] ?? 'Nome não definido'; ?> 
+        </p>
+
         <?php if (isset($_SESSION['perfil']) && strtolower($_SESSION['perfil']) === 'admin'): ?>
             <a href="users/listar.php" class="clinica-btn">
                 <i class="fa-solid fa-user-shield"></i> Usuarios
             </a>
         <?php endif; ?>
+
+        <a href="users/listar.php" class="clinica-btn">
+            <i class="fa-solid fa-user-shield"></i> Usuarios
+        </a>
 
         <a href="pacientes/listar.php" class="clinica-btn">
             <i class="fa-solid fa-user-injured"></i> Pacientes
@@ -38,7 +53,7 @@ if (!isset($_SESSION['user_id'])) {
         <a href="agendamentos/calendario.php" class="clinica-btn">
             <i class="fa-solid fa-calendar-check"></i> Agendamentos
         </a>
-        <a href="#" class="clinica-btn">
+        <a href="./procedimentos/procedimentos.php" class="clinica-btn">
             <i class="fa-solid fa-tooth"></i> Procedimentos
         </a>
         <a href="./auth/logout.php" class="clinica-btn logout-btn">

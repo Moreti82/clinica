@@ -1,0 +1,120 @@
+/* ======== RESET BÁSICO ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f7;
+    color: #333;
+}
+
+/* ======== CONTAINER ======== */
+.container {
+    width: 95%;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ======== TÍTULO ======== */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #1a3d6f;
+    font-weight: 600;
+}
+
+/* ======== BOTÃO ======== */
+.btn {
+    display: inline-block;
+    background: #1a73e8;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+
+.btn:hover {
+    background: #0f5ec4;
+}
+
+/* ======== TABELA ======== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+thead {
+    background: #1a73e8;
+    color: #fff;
+}
+
+thead th {
+    padding: 14px;
+    font-size: 15px;
+    text-align: left;
+}
+
+tbody tr {
+    background: #fff;
+    transition: 0.2s;
+}
+
+tbody tr:nth-child(even) {
+    background: #f5f8fc;
+}
+
+tbody tr:hover {
+    background: #e8f0fe;
+}
+
+tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #dce3ed;
+    font-size: 14px;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 700px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        padding: 10px;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    tbody td {
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #1a3d6f;
+    }
+}
