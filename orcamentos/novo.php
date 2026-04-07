@@ -226,13 +226,18 @@ function calcularItem(element) {
 function calcularTotal() {
     let total = 0;
     document.querySelectorAll('.item-orcamento').forEach(item => {
-        const qtd = parseInt(item.querySelector('.quantidade').value) || 1;
-        const valorTexto = item.querySelector('.valor-unitario').value.replace(/[^\d]/g, '');
+        const qtdInput = item.querySelector('.quantidade');
+        const valorInput = item.querySelector('.valor-unitario');
+        
+        const qtd = parseInt(qtdInput.value) || 0;
+        const valorTexto = valorInput.value.replace(/[^\d]/g, '') || '0';
         const valor = parseInt(valorTexto) / 100;
+        
         total += qtd * valor;
     });
     
-    const descontoTexto = document.getElementById('desconto').value.replace(/[^\d]/g, '');
+    const descontoInput = document.getElementById('desconto');
+    const descontoTexto = descontoInput.value.replace(/[^\d]/g, '') || '0';
     const desconto = parseInt(descontoTexto) / 100;
     const final = Math.max(0, total - desconto);
     

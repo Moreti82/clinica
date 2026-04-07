@@ -215,6 +215,8 @@ function statusBadge($status) {
         'cancelado' => 'badge-danger',
         'pago' => 'badge-success',
         'recebido' => 'badge-success',
+        'aprovado' => 'badge-success',
+        'recusado' => 'badge-danger',
     ];
     
     $classe = $classes[$status] ?? 'badge-secondary';

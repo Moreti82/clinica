@@ -152,13 +152,12 @@ include '../includes/header.php';
         </div>
     </div>
     
-    
     <?php if ($orcamento['observacoes']): ?>
         <div style="margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 8px;">
             <strong>Observações:</strong><br>
             <?php echo nl2br(htmlspecialchars($orcamento['observacoes'])); ?>
         </div>
-    <?php endif; ?
+    <?php endif; ?>
     
     
     <!-- Assinaturas -->
@@ -176,7 +175,7 @@ include '../includes/header.php';
                 Assinatura do Profissional
             </div>
         </div>
-    
+    </div>
 </div>
 
 <?php include '../includes/footer.php'; ?>
