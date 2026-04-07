@@ -1,44 +1,34 @@
 <?php
+$page_title = 'Pacientes';
+require_once '../includes/functions.php';
 require_once '../config/conexao.php';
 
-$stmt = $db->query("SELECT * FROM pacientes");
+$stmt = $db->query("SELECT * FROM pacientes ORDER BY nome");
 $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+include '../includes/header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
+<div class="page-header">
+    <h1 class="page-title">Pacientes</h1>
+    <div class="breadcrumb"><a href="../dashboard/index.php">Início</a> / Pacientes</div>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pacientes - Clínica</title>
-    <link rel="stylesheet" href="../assets/css/style-listar-pacientes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
+<?php exibirFlashMessage(); ?>
 
-<body id="pacientes-body">
+<div class="card" style="margin-bottom: 25px;">
+    <a href="novo.php" class="btn btn-success"><i class="fa-solid fa-user-plus"></i> Novo Paciente</a>
+</div>
 
-    <div id="pacientes-container">
-        <h2 id="pacientes-title">Pacientes</h2>
-
-        <a href="novo.php" class="pacientes-btn pacientes-btn-novo">
-            <i class="fa-solid fa-user-plus"></i> Novo Paciente
-        </a>
-
-        <a href="../index.php" class="pacientes-btn pacientes-btn-voltar">
-            <i class="fa-solid fa-arrow-left"></i>Voltar
-        </a>
-
-        <table id="pacientes-table">
+<div class="card">
+    <div class="table-container">
+        <table>
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Telefone</th>
                     <th>E-mail</th>
                     <th>CPF</th>
-                    <th>Endereço</th>
-                    <th>Observações</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
@@ -46,28 +36,27 @@ $pacientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($pacientes as $p): ?>
                     <tr>
-                        <td><?= htmlspecialchars($p['nome']) ?></td>
-                        <td><?= $p['telefone'] ?></td>
-                        <td><?= $p['email'] ?></td>
-                        <td><?= $p['cpf'] ?></td>
-                        <td><?= $p['endereco'] ?></td>
-                        <td><?= $p['observacoes'] ?></td>
-                        <td class="<?= $p['ativo'] ? 'paciente-status-ativo' : 'paciente-status-inativo' ?>">
-                            <?= $p['ativo'] ? 'Ativo' : 'Inativo' ?>
-                        </td>
-                        <td class="pacientes-acoes">
-                            <a href="editar.php?id=<?= $p['id'] ?>" class="pacientes-btn-editar">
+                        <td><?php echo htmlspecialchars($p['nome']); ?></td>
+                        <td><?php echo mascararTelefone($p['telefone']); ?></td>
+                        <td><?php echo htmlspecialchars($p['email']); ?></td>
+                        <td><?php echo mascararCPF($p['cpf']); ?></td>
+                        <td><?php echo statusBadge($p['ativo'] ? 'Ativo' : 'Inativo'); ?></td>
+                        <td style="white-space: nowrap;">
+                            <a href="../odontograma/index.php?paciente_id=<?php echo $p['id']; ?>" class="btn btn-info" style="padding: 5px 10px; font-size: 0.8rem; margin: 2px; color: white;">
+                                <i class="fa-solid fa-tooth"></i> ODONTOGRAMA
+                            </a>
+                            <a href="editar.php?id=<?php echo $p['id']; ?>" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8rem; margin: 2px;">
                                 <i class="fa-solid fa-pen-to-square"></i> Editar
                             </a>
-                            
+                            <a href="../prontuario/index.php?paciente_id=<?php echo $p['id']; ?>" class="btn btn-primary" style="padding: 5px 10px; font-size: 0.8rem; margin: 2px;">
+                                <i class="fa-solid fa-notes-medical"></i> Prontuário
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
+</div>
 
-    <script src="../assets/js/listar-pacientes.js"></script>
-
-</body>
-</html>
+<?php include '../includes/footer.php'; ?>

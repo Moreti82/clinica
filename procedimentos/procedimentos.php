@@ -1,46 +1,54 @@
 <?php
-require_once __DIR__ . '/../config/conexao.php';
+$page_title = 'Procedimentos';
+require_once '../includes/functions.php';
+require_once '../config/conexao.php';
 
-$sql = "SELECT * FROM procedimentos ORDER BY id DESC";
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$procedimentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$procedimentos = $db->query("SELECT * FROM procedimentos ORDER BY descricao")->fetchAll(PDO::FETCH_ASSOC);
+
+include '../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Procedimentos</title>
-    <link rel="stylesheet" href="../assets/css/style-procedimentos.css">
-</head>
-<body>
 
-<div class="container">
-    <h1>Procedimentos Cadastrados</h1>
-
-    <a href="novo.php" class="btn">Cadastrar Novo</a>
-
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Descrição</th>
-                <th>Valor Padrão</th>
-                <th>Observações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($procedimentos as $p): ?>
-                <tr>
-                    <td data-label="ID"><?= $p['id'] ?></td>
-                    <td data-label="Descrição"><?= htmlspecialchars($p['descricao']) ?></td>
-                    <td data-label="Valor Padrão">R$ <?= number_format($p['valor_padrao'], 2, ',', '.') ?></td>
-                    <td data-label="Observações"><?= htmlspecialchars($p['observacoes'] ?? '') ?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+<div class="page-header">
+    <h1 class="page-title">Procedimentos</h1>
+    <div class="breadcrumb"><a href="../dashboard/index.php">Início</a> / Procedimentos</div>
 </div>
 
-</body>
-</html>
+<?php exibirFlashMessage(); ?>
+
+<div class="card" style="margin-bottom: 25px;">
+    <a href="novo.php" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo Procedimento</a>
+</div>
+
+<div class="card">
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor Padrão</th>
+                    <th>Observações</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($procedimentos as $p): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($p['descricao']); ?></td>
+                        <td><?php echo formatarDinheiro($p['valor_padrao']); ?></td>
+                        <td><?php echo htmlspecialchars($p['observacoes'] ?? ''); ?></td>
+                        <td>
+                            <a href="editar.php?id=<?php echo $p['id']; ?>" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8rem;">
+                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                            </a>
+                            <a href="excluir.php?id=<?php echo $p['id']; ?>" class="btn btn-danger" style="padding: 5px 10px; font-size: 0.8rem; margin-left: 5px;" onclick="return confirmarExclusao()">
+                                <i class="fa-solid fa-trash"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php include '../includes/footer.php'; ?>
