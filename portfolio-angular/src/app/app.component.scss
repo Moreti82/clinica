@@ -1,0 +1,74 @@
+:host {
+  display: block;
+  font-family: Inter, Arial, sans-serif;
+  color: #0f172a;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.kicker {
+  color: #2563eb;
+  font-weight: 700;
+  margin: 0;
+}
+
+h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.cta-group {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn.ghost {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 1rem;
+  background: #fff;
+}
