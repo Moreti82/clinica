@@ -1,0 +1,31 @@
+<main class="page">
+  <section class="hero">
+    <p class="kicker">Portfólio Profissional</p>
+    <h1>Olá, eu desenvolvo soluções digitais que geram resultado.</h1>
+    <p>
+      Atuo com desenvolvimento de software, apps Android, web apps e aplicações desktop,
+      aplicando boas práticas de engenharia de software para construir produtos robustos.
+    </p>
+    <div class="cta-group">
+      <a href="mailto:seuemail@dominio.com" class="btn primary">Entrar em contato</a>
+      <a href="https://github.com/seu-usuario" target="_blank" rel="noreferrer" class="btn ghost">Ver GitHub</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Serviços</h2>
+    <ul>
+      <li *ngFor="let service of services">{{ service }}</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Projetos em destaque</h2>
+    <div class="cards">
+      <article class="card" *ngFor="let project of projects">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+      </article>
+    </div>
+  </section>
+</main>
