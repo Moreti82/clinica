@@ -3,6 +3,9 @@
  * Funções utilitárias globais do sistema OdontoCare
  */
 
+require_once __DIR__ . '/../config/app.php';
+
+
 /**
  * Redireciona para uma URL com mensagem opcional
  */
@@ -156,7 +159,7 @@ function isAdmin() {
  */
 function requerAdmin() {
     if (!isAdmin()) {
-        redirecionar('/clinica_odonto_completa/dashboard/index.php', 
+        redirecionar(BASE_URL . '/dashboard/index.php',
             'Acesso negado. Permissão de administrador necessária.', 'danger');
     }
 }

@@ -4,6 +4,8 @@
  * Inclui verificação de sessão e estrutura HTML base
  */
 
+require_once __DIR__ . '/../config/app.php';
+
 // Iniciar sessão se ainda não estiver iniciada
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -11,7 +13,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Verificar se usuário está logado
 if (!isset($_SESSION['user_id'])) {
-    header("Location: /clinica_odonto_completa/auth/login.php");
+    header('Location: ' . BASE_URL . '/auth/login.php');
     exit;
 }
 
@@ -432,7 +434,7 @@ $diretorio_atual = basename(dirname($_SERVER['PHP_SELF']));
                 <div class="user-name"><?php echo htmlspecialchars($usuario_nome); ?></div>
                 <div class="user-role"><?php echo htmlspecialchars($usuario_perfil); ?></div>
             </div>
-            <a href="/clinica_odonto_completa/auth/logout.php" class="btn-logout">
+            <a href="<?php echo BASE_URL; ?>/auth/logout.php" class="btn-logout">
                 <i class="fa-solid fa-right-from-bracket"></i> Sair
             </a>
         </div>
@@ -442,11 +444,11 @@ $diretorio_atual = basename(dirname($_SERVER['PHP_SELF']));
     <nav class="sidebar">
         <div class="menu-section">
             <div class="menu-title">Principal</div>
-            <a href="/clinica_odonto_completa/dashboard/index.php" class="menu-item <?php echo $diretorio_atual === 'dashboard' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/dashboard/index.php" class="menu-item <?php echo $diretorio_atual === 'dashboard' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-chart-line"></i>
                 Dashboard
             </a>
-            <a href="/clinica_odonto_completa/agendamentos/calendario.php" class="menu-item <?php echo $diretorio_atual === 'agendamentos' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/agendamentos/calendario.php" class="menu-item <?php echo $diretorio_atual === 'agendamentos' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-calendar-check"></i>
                 Agendamentos
             </a>
@@ -454,19 +456,19 @@ $diretorio_atual = basename(dirname($_SERVER['PHP_SELF']));
         
         <div class="menu-section">
             <div class="menu-title">Cadastros</div>
-            <a href="/clinica_odonto_completa/pacientes/listar.php" class="menu-item <?php echo $diretorio_atual === 'pacientes' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/pacientes/listar.php" class="menu-item <?php echo $diretorio_atual === 'pacientes' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-user-injured"></i>
                 Pacientes
             </a>
-            <a href="/clinica_odonto_completa/profissionais/profissionais.php" class="menu-item <?php echo $diretorio_atual === 'profissionais' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/profissionais/profissionais.php" class="menu-item <?php echo $diretorio_atual === 'profissionais' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-user-doctor"></i>
                 Profissionais
             </a>
-            <a href="/clinica_odonto_completa/procedimentos/procedimentos.php" class="menu-item <?php echo $diretorio_atual === 'procedimentos' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/procedimentos/procedimentos.php" class="menu-item <?php echo $diretorio_atual === 'procedimentos' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-tooth"></i>
                 Procedimentos
             </a>
-            <a href="/clinica_odonto_completa/convenios/index.php" class="menu-item <?php echo $diretorio_atual === 'convenios' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/convenios/index.php" class="menu-item <?php echo $diretorio_atual === 'convenios' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-id-card"></i>
                 Convênios
             </a>
@@ -474,15 +476,15 @@ $diretorio_atual = basename(dirname($_SERVER['PHP_SELF']));
         
         <div class="menu-section">
             <div class="menu-title">Financeiro</div>
-            <a href="/clinica_odonto_completa/orcamentos/listar.php" class="menu-item <?php echo $diretorio_atual === 'orcamentos' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/orcamentos/listar.php" class="menu-item <?php echo $diretorio_atual === 'orcamentos' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-file-invoice-dollar"></i>
                 Orçamentos
             </a>
-            <a href="/clinica_odonto_completa/financeiro/contas_receber.php" class="menu-item <?php echo $diretorio_atual === 'financeiro' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/financeiro/contas_receber.php" class="menu-item <?php echo $diretorio_atual === 'financeiro' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-money-bill-wave"></i>
                 Contas a Receber
             </a>
-            <a href="/clinica_odonto_completa/financeiro/caixa.php" class="menu-item <?php echo $diretorio_atual === 'financeiro' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/financeiro/caixa.php" class="menu-item <?php echo $diretorio_atual === 'financeiro' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-cash-register"></i>
                 Caixa
             </a>
@@ -490,11 +492,11 @@ $diretorio_atual = basename(dirname($_SERVER['PHP_SELF']));
         
         <div class="menu-section">
             <div class="menu-title">Clínica</div>
-            <a href="/clinica_odonto_completa/odontograma/index.php" class="menu-item <?php echo $diretorio_atual === 'odontograma' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/odontograma/index.php" class="menu-item <?php echo $diretorio_atual === 'odontograma' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-teeth-open"></i>
                 Odontograma
             </a>
-            <a href="/clinica_odonto_completa/estoque/index.php" class="menu-item <?php echo $diretorio_atual === 'estoque' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/estoque/index.php" class="menu-item <?php echo $diretorio_atual === 'estoque' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-boxes-stacked"></i>
                 Estoque
             </a>
@@ -502,7 +504,7 @@ $diretorio_atual = basename(dirname($_SERVER['PHP_SELF']));
         
         <div class="menu-section">
             <div class="menu-title">Relatórios</div>
-            <a href="/clinica_odonto_completa/relatorios/index.php" class="menu-item <?php echo $diretorio_atual === 'relatorios' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/relatorios/index.php" class="menu-item <?php echo $diretorio_atual === 'relatorios' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-chart-pie"></i>
                 Relatórios
             </a>
@@ -511,11 +513,11 @@ $diretorio_atual = basename(dirname($_SERVER['PHP_SELF']));
         <?php if ($is_admin): ?>
         <div class="menu-section">
             <div class="menu-title">Administração</div>
-            <a href="/clinica_odonto_completa/users/listar.php" class="menu-item <?php echo $diretorio_atual === 'users' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/users/listar.php" class="menu-item <?php echo $diretorio_atual === 'users' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-users-cog"></i>
                 Usuários
             </a>
-            <a href="/clinica_odonto_completa/configuracoes/index.php" class="menu-item <?php echo $diretorio_atual === 'configuracoes' ? 'active' : ''; ?>">
+            <a href="<?php echo BASE_URL; ?>/configuracoes/index.php" class="menu-item <?php echo $diretorio_atual === 'configuracoes' ? 'active' : ''; ?>">
                 <i class="fa-solid fa-cog"></i>
                 Configurações
             </a>
